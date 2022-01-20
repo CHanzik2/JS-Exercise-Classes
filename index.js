@@ -175,8 +175,7 @@ class Student extends Lambdasian{
      super(atr);
      this.previousBackground = atr.previousBackground;
      this.className = atr.className;
-     const favSubjects = ['HTML', 'CSS', 'JS'];
-     this.favSubjects = favSubjects;
+     this.favSubjects = atr.favSubjects;
    }
    listSubjects(){
      return `Loving ${this.favSubjects}`;
@@ -188,16 +187,7 @@ class Student extends Lambdasian{
     return `${this.name} has begun sprint challenge on ${subject}`;
    }
 }
-const stud = new Student({
-  name: 'Cannen',
-  age: 23,
-  location: 'Texas',
-  previousBackground: 'Computer Science',
-  className: 'Web52',
-  favSubjects: ''
-});
 
-console.log(stud.listSubjects());
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -211,8 +201,18 @@ console.log(stud.listSubjects());
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-   
+class ProjectManager extends Instructor{
+   constructor(atr){
+     super(atr);
+     this.gradClassName = atr.gradClassName;
+     this.favInstructor = atr.favInstructor;
+   }
+   standUp(channel){
+     return `${this.name} announces to ${channel}, @channel standy times!`;
+   }
+   debugsCode(student, subject){
+     return `${this.name} debugs ${student.name}'s code on ${subject}`;
+   }
 }
 /*
   STRETCH PROBLEM (no tests!)
